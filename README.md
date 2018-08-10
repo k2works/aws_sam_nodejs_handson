@@ -60,6 +60,22 @@ sam local start-api --host 0.0.0.0
 [http://192.168.33.10:3000/hello](http://192.168.33.10:3000/hello)に接続して確認する
 
 ## 配置
+### AWS認証設定
+```bash
+cd /vagrant/sam-app
+cat <<EOF > .env
+#!/usr/bin/env bash
+export AWS_ACCESS_KEY_ID=xxxxxxxxxxxx
+export AWS_SECRET_ACCESS_KEY=xxxxxxxxxx
+export AWS_DEFAULT_REGION=us-east-1
+EOF
+```
+アクセスキーを設定したら以下の操作をする
+```bash
+source .env
+aws ec2 describe-regions
+```
+
 ## 運用
 ## 開発
 
