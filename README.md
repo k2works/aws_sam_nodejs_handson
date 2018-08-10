@@ -93,6 +93,15 @@ aws cloudformation describe-stacks --stack-name nodejs-handson --query 'Stacks[]
 ```
 
 ## 運用
+### スタックの削除
+```bash
+aws cloudformation delete-stack --stack-name nodejs-handson
+```
+### S３バケットの削除
+```bash
+aws s3 rb s3://nodejs-handson --force
+```
+
 ## 開発
 
 # 参照
