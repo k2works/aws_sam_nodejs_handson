@@ -41,6 +41,12 @@ nvm install v8.10
 nvm alias default v8.10
 ```
 
+### アプリケーションの作成
+```bash
+cd /vagrant
+sam init --runtime nodejs
+cd sam-app
+```
 ## 配置
 ## 運用
 ## 開発
