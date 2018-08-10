@@ -47,6 +47,18 @@ cd /vagrant
 sam init --runtime nodejs
 cd sam-app
 ```
+### ローカルでテストする
+```bash
+cd hello_world
+npm install
+npm test
+sam local generate-event api > event_file.json
+cd ..
+sam local invoke HelloWorldFunction --event hello_world/event_file.json
+sam local start-api --host 0.0.0.0
+```
+[http://192.168.33.10:3000/hello](http://192.168.33.10:3000/hello)に接続して確認する
+
 ## 配置
 ## 運用
 ## 開発
