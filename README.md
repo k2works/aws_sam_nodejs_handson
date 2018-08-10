@@ -75,6 +75,22 @@ EOF
 source .env
 aws ec2 describe-regions
 ```
+### デプロイ
+デプロイ用のS3バケットを用意する
+```bash
+aws s3 mb s3://nodejs-handson
+```
+デプロイを実行する
+````bash
+cd /vagrant/sam-app
+sam validate
+sam package --template-file template.yaml --s3-bucket nodejs-handson --output-template-file packaged.yaml
+sam deploy --template-file packaged.yaml --stack-name nodejs-handson --capabilities CAPABILITY_IAM
+````
+デプロイが成功したら動作を確認する
+```bash
+aws cloudformation describe-stacks --stack-name nodejs-handson --query 'Stacks[].Outputs[1]'
+```
 
 ## 運用
 ## 開発
