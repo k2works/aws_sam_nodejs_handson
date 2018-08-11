@@ -186,6 +186,24 @@ lintコマンドを実行する
 ```bash
 npm run lint
 ```
+### huskyのセットアップ
+```bash
+npm install husky@next --save-dev
+```
+package.jsonにnpm-scriptを追加する
+```bash
+"scripts": {
+    "test": "mocha tests/unit/",
+    "lint": "eslint ./",
+    "pre-commit": "npm run lint",
+    "pre-push": "npm test"
+  },
+```
+コマンドを確認する
+```bash
+npm run pre-commit
+npm run pre-push
+```
 
 # 参照
 + [Amazon Linux2にDockerをインストールする](https://qiita.com/reoring/items/0d1f556064d363f0ccb8)
@@ -195,3 +213,4 @@ npm run lint
 + [クラウド破産しないように git-secrets を使う](https://qiita.com/pottava/items/4c602c97aacf10c058f1) 
 + [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 + [ESLint 最初の一歩](https://qiita.com/mysticatea/items/f523dab04a25f617c87d)
++ [husky](https://github.com/typicode/husky)
