@@ -43,5 +43,9 @@ Vagrant.configure(2) do |config|
     chmod +x /usr/local/bin/docker-compose
     curl -kL https://bootstrap.pypa.io/get-pip.py | python
     yum install -y git
+    yum install -y java-1.8.0-openjdk-headless.x86_64
+    yum install -y graphviz
+    wget http://jaist.dl.sourceforge.net/project/plantuml/plantuml.jar
+    mv plantuml.jar /usr/local/bin
   SHELL
 end
