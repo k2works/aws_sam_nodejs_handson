@@ -59,6 +59,31 @@ sam local start-api --host 0.0.0.0
 ```
 [http://192.168.33.10:3000/hello](http://192.168.33.10:3000/hello)に接続して確認する
 
+### ドキュメント環境セットアップ
+```bash
+cd /vagrant
+sudo amazon-linux-extras install ruby2.4
+gem install bundler
+bundle init
+```
+Gemfileに以下の内容を追加してパッケージのセットアップを行う
+```bash
+cat <<EOF >> Gemfile
+# documents
+group :doc do
+  gem 'asciidoctor'
+  gem 'asciidoctor-diagram'
+  gem 'yard'
+end
+EOF
+bundle install --path vendor/bundle
+```
+ドキュメントサーバーの起動
+```bash
+ ./docs/server.sh 
+```
+[http://192.168.33.10:8000](http://192.168.33.10:8000)に接続して確認する
+
 ## 配置
 ### AWS認証設定
 ```bash
