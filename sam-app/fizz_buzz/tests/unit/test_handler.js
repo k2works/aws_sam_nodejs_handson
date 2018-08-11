@@ -5,8 +5,8 @@ const chai = require('chai');
 const app = require('../../app.js');
 
 const expect = chai.expect;
-let event; let
-  context;
+let event;
+let context;
 
 
 describe('Tests index', () => {

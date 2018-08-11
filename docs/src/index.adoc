@@ -18,10 +18,10 @@
 
 
 == 構成
-* <<anchor-1,FizzBuzz>>
+* <<anchor-1,Fizz_buzz>>
 
 == 詳細
-=== link:./fizz_buzz/index.html[FizzBuzz][[anchor-1]]
+=== link:./fizz_buzz/index.html[Fizz_buzz][[anchor-1]]
 
 == 参照
 * Fizz Buzz[https://ja.wikipedia.org/wiki/Fizz_Buzz]
