@@ -18,11 +18,10 @@
 
 
 == 構成
+* <<anchor-1,FizzBuzz>>
 
 == 詳細
-
+=== link:./fizz_buzz/index.html[FizzBuzz][[anchor-1]]
 
 == 参照
-* Asciidoctor[http://asciidoctor.org/]
-* PlantUML[http://www.plantuml.com]
-* draw.io[https://about.draw.io/]
+* Fizz Buzz[https://ja.wikipedia.org/wiki/Fizz_Buzz]
