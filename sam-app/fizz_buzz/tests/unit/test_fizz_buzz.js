@@ -7,6 +7,9 @@ const expect = chai.expect;
 describe('A FizzBuzz generator', () => {
   beforeEach(() => {
     this.fizzBuzz = new FizzBuzz();
+    this.FIZZ = 'Fizz';
+    this.BUZZ = 'Buzz';
+    this.FIZZ_BUZZ = 'FizzBuzz';
   });
 
   it('should return the number 1 when 1 is played', () => {
@@ -21,26 +24,31 @@ describe('A FizzBuzz generator', () => {
 
   it('should return "Fizz" when 3 is played', () => {
     const result = this.fizzBuzz.generate(3);
-    expect(result).to.be.equal('Fizz');
+    expect(result).to.be.equal(this.FIZZ);
   });
 
   it('should return "Fizz" when 6 is played', () => {
     const result = this.fizzBuzz.generate(6);
-    expect(result).to.be.equal('Fizz');
+    expect(result).to.be.equal(this.FIZZ);
   });
 
   it('should return "Buzz" when 5 is played', () => {
     const result = this.fizzBuzz.generate(5);
-    expect(result).to.be.equal('Buzz');
+    expect(result).to.be.equal(this.BUZZ);
   });
 
   it('should return "Buzz" when 10 is played', () => {
     const result = this.fizzBuzz.generate(10);
-    expect(result).to.be.equal('Buzz');
+    expect(result).to.be.equal(this.BUZZ);
   });
 
   it('should return "FizzBuzz" when 15 is played', () => {
     const result = this.fizzBuzz.generate(15);
-    expect(result).to.be.equal('FizzBuzz');
+    expect(result).to.be.equal(this.FIZZ_BUZZ);
   });
+
+  it('should return "FizzBuzz" when 30 is played', () => {
+    const result = this.fizzBuzz.generate(30);
+    expect(result).to.be.equal(this.FIZZ_BUZZ);
+  })
 });
