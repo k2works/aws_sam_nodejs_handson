@@ -5,21 +5,22 @@ const FizzBuzz = require('../../src/fizz_buzz');
 const expect = chai.expect;
 
 describe('A FizzBuzz generator', () => {
+  beforeEach(() => {
+    this.fizzBuzz = new FizzBuzz();
+  });
+
   it('should return the number 1 when 1 is played', () => {
-    const fizzBuzz = new FizzBuzz();
-    const result = fizzBuzz.generate(1);
+    const result = this.fizzBuzz.generate(1);
     expect(result).to.be.equal(1);
   });
 
   it('should return then number 2 when 2 is played', () => {
-    const fizzBuzz = new FizzBuzz();
-    const result = fizzBuzz.generate(2);
+    const result = this.fizzBuzz.generate(2);
     expect(result).to.be.equal(2);
   });
 
   it('should return "Fizz" when 3 is played', () => {
-    const fizzBuzz = new FizzBuzz();
-    const result = fizzBuzz.generate(3);
+    const result = this.fizzBuzz.generate(3);
     expect(result).to.be.equal('Fizz');
   });
 });
