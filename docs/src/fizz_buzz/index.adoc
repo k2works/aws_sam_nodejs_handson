@@ -32,12 +32,26 @@ rectangle Fizz_buzz {
 === クラス図
 [plantuml]
 ----
-class Fizz_buzz {
+class FizzBuzz {
++ generate()
++ iterator()
 }
 ----
 
 === シーケンス図
+[plantuml]
+----
+actor User
 
+User -> FizzBuzz: counter
+loop for each iterator
+      activate FizzBuzz
+      FizzBuzz -> FizzBuzz: generate
+            User <- FizzBuzz
+      deactivate FizzBuzz
+end
+
+----
 == 実装
 [source,javascript]
 ----
