@@ -1,0 +1,18 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    asciidoctor (1.5.7.1)
+    asciidoctor-diagram (1.5.9)
+      asciidoctor (~> 1.5.0)
+    yard (0.9.15)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  asciidoctor
+  asciidoctor-diagram
+  yard
+
+BUNDLED WITH
+   1.16.3

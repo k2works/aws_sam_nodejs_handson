@@ -1,0 +1,66 @@
+:toc: left
+:toclevels: 5
+:sectnums:
+
+= Fizz Buzz
+
+== 仕様
+* ３で割り切れる場合は「Fizz」を出力する。
+* ５で割り切れる場合は「Buzz」を出力する。
+* 両者で割り切れる場合は「Fizz_buzz」を出力する。
+* 条件を満たさない場合は入力された値を出力する。
+* 指定された回数だけ繰り返し実行する。
+
+== 設計
+=== TODOリスト
+* [x] [line-through]#「Fizz」を出力できるようにする#
+* [x] [line-through]#「Buzz」を出力できるようにする#
+* [x] [line-through]#「Fizz_buzz」を出力できるようにする#
+* [x] [line-through]#繰り返し実行できるようにする#
+
+=== ユースケース図
+[plantuml]
+----
+left to right direction
+skinparam packageStyle rectangle
+actor User
+rectangle Fizz_buzz {
+  User -- (Print Value)
+}
+----
+
+=== クラス図
+[plantuml]
+----
+class FizzBuzz {
++ generate()
++ {static}iterator()
+}
+----
+
+=== シーケンス図
+[plantuml]
+----
+actor User
+
+User -> FizzBuzz: counter
+loop for each iterator
+      activate FizzBuzz
+      FizzBuzz -> FizzBuzz: generate
+            User <- FizzBuzz
+      deactivate FizzBuzz
+end
+
+----
+== 実装
+[source,javascript]
+----
+include::../../../sam-app/fizz_buzz/tests/unit/test_fizz_buzz.js[]
+----
+[source,javascript]
+----
+include::../../../sam-app/fizz_buzz/src/fizz_buzz.js[]
+----
+
+== 参照
+* Fizz Buzz[https://ja.wikipedia.org/wiki/Fizz_Buzz]

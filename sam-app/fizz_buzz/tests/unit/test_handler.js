@@ -5,11 +5,18 @@ const chai = require('chai');
 const app = require('../../app.js');
 
 const expect = chai.expect;
-let event; let
-  context;
+let event;
+let context;
 
 
 describe('Tests index', () => {
+  event = {
+    path: '/fizz_buzz/generate/5',
+    pathParameters: {
+      input: '5',
+    },
+  };
+
   it('verifies successful response', async () => {
     const result = await app.lambda_handler(event, context, (err, result) => {
       expect(result).to.be.an('object');
@@ -19,8 +26,7 @@ describe('Tests index', () => {
       const response = JSON.parse(result.body);
 
       expect(response).to.be.an('object');
-      expect(response.message).to.be.equal('hello world');
-      expect(response.location).to.be.an('string');
+      expect(response.message).to.be.eql('Buzz');
     });
   });
 });

@@ -59,6 +59,31 @@ sam local start-api --host 0.0.0.0
 ```
 [http://192.168.33.10:3000/hello](http://192.168.33.10:3000/hello)に接続して確認する
 
+### ドキュメント環境セットアップ
+```bash
+cd /vagrant
+sudo amazon-linux-extras install ruby2.4
+gem install bundler
+bundle init
+```
+Gemfileに以下の内容を追加してパッケージのセットアップを行う
+```bash
+cat <<EOF >> Gemfile
+# documents
+group :doc do
+  gem 'asciidoctor'
+  gem 'asciidoctor-diagram'
+  gem 'yard'
+end
+EOF
+bundle install --path vendor/bundle
+```
+ドキュメントサーバーの起動
+```bash
+ ./docs/server.sh 
+```
+[http://192.168.33.10:8000](http://192.168.33.10:8000)に接続して確認する
+
 ## 配置
 ### AWS認証設定
 ```bash
@@ -129,6 +154,56 @@ git config --add secrets.allowed sam-app/hello_world/event_file.json
 ```
 
 ## 開発
+### eslintのセットアップ
+```bash
+cd /vagrant
+npm install eslint --save-dev
+```
+### eslint-config-airbnbのセットアップ
+```bash
+cd /vagrant/sam-app/hello_world/
+npx install-peerdeps --dev eslint-config-airbnb
+./node_modules/.bin/eslint --init
+cat <<EOF > .eslintrc
+{
+  "extends": "airbnb",
+  "plugins": [],
+  "parserOptions": {},
+  "env": {"mocha": true},
+  "globals": {},
+  "rules": {}
+}
+EOF
+```
+package.jsonにnpm-scriptを追加する
+```json
+"scripts": {
+    "test": "mocha tests/unit/",
+    "lint": "eslint ./"
+  },
+```
+lintコマンドを実行する
+```bash
+npm run lint
+```
+### huskyのセットアップ
+```bash
+npm install husky@next --save-dev
+```
+package.jsonにnpm-scriptを追加する
+```bash
+"scripts": {
+    "test": "mocha tests/unit/",
+    "lint": "eslint ./",
+    "pre-commit": "npm run lint",
+    "pre-push": "npm test"
+  },
+```
+コマンドを確認する
+```bash
+npm run pre-commit
+npm run pre-push
+```
 
 # 参照
 + [Amazon Linux2にDockerをインストールする](https://qiita.com/reoring/items/0d1f556064d363f0ccb8)
@@ -136,3 +211,6 @@ git config --add secrets.allowed sam-app/hello_world/event_file.json
 + [aws-sam-local 改め aws-sam-cli の新機能 sam init を試す](https://qiita.com/hayao_k/items/841026f9675d163b58d5)
 + [nvmを使ったNode.jsのインストール&バージョンアップ手順](https://qiita.com/ffggss/items/94f1c4c5d311db2ec71a)
 + [クラウド破産しないように git-secrets を使う](https://qiita.com/pottava/items/4c602c97aacf10c058f1) 
++ [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
++ [ESLint 最初の一歩](https://qiita.com/mysticatea/items/f523dab04a25f617c87d)
++ [husky](https://github.com/typicode/husky)

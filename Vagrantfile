@@ -18,7 +18,6 @@ Vagrant.configure(2) do |config|
   config.vm.box_version = ">=0"
 
   config.vm.network :private_network, ip:"192.168.33.10"
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   config.vm.synced_folder ".", "/vagrant", mount_options: ['dmode=777','fmode=777']
 
@@ -43,5 +42,10 @@ Vagrant.configure(2) do |config|
     chmod +x /usr/local/bin/docker-compose
     curl -kL https://bootstrap.pypa.io/get-pip.py | python
     yum install -y git
+    yum install -y java-1.8.0-openjdk-headless.x86_64
+    yum install -y graphviz
+    wget http://jaist.dl.sourceforge.net/project/plantuml/plantuml.jar
+    mv plantuml.jar /usr/local/bin
+    amazon-linux-extras install ruby2.4
   SHELL
 end
