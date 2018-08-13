@@ -1,12 +1,12 @@
 {
     "body": "{ \"test\": \"body\"}", 
-    "httpMethod": "POST", 
+    "httpMethod": "GET",
     "resource": "/{proxy+}", 
     "queryStringParameters": {
         "foo": "bar"
     }, 
     "requestContext": {
-        "httpMethod": "POST", 
+        "httpMethod": "GET",
         "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef", 
         "path": "/{proxy+}", 
         "extendedRequestId": null, 
@@ -49,9 +49,9 @@
         "CloudFront-Forwarded-Proto": "https"
     }, 
     "stageVariables": null, 
-    "path": "/examplepath", 
+    "path": "/fizz_buzz/generate/5",
     "pathParameters": {
-        "proxy": "/examplepath"
+        "input": "5"
     }, 
     "isBase64Encoded": false
 }

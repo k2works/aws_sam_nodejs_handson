@@ -1,19 +1,19 @@
 /* eslint-disable no-console */
 
-const axios = require('axios');
+const FizzBuzz = require('./src/fizz_buzz');
 
-const url = 'http://checkip.amazonaws.com/';
+const fizzBuzz = new FizzBuzz();
 let response;
 
 
 exports.lambda_handler = async (event, context, callback) => {
   try {
-    const ret = await axios(url);
+    const { input } = event.pathParameters;
+    const ret = await fizzBuzz.generate(input);
     response = {
       statusCode: 200,
       body: JSON.stringify({
-        message: 'hello world',
-        location: ret.data.trim(),
+        message: ret,
       }),
     };
   } catch (err) {
