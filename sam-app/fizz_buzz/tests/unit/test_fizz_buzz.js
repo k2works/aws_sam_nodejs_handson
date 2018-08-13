@@ -54,17 +54,13 @@ describe('A FizzBuzz generator', () => {
 });
 
 describe('A FizzBuzz iterator', () => {
-  beforeEach(() => {
-    this.fizzBuzz = new FizzBuzz();
-  });
-
   it('should return [1,2,"Fizz",3,4,"Buzz"] when 5 is given', () => {
-    const result = this.fizzBuzz.iterator(5);
+    const result = FizzBuzz.iterator(5);
     expect(result).to.be.eql([1, 2, 'Fizz', 4, 'Buzz']);
   });
 
   it('should return [1,2,...."FizzBuzz"] when 15 is given', () => {
-    const result = this.fizzBuzz.iterator(15);
+    const result = FizzBuzz.iterator(15);
     expect(result.pop()).to.be.eql('FizzBuzz');
   });
 });

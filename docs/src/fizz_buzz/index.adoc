@@ -34,7 +34,7 @@ rectangle Fizz_buzz {
 ----
 class FizzBuzz {
 + generate()
-+ iterator()
++ {static}iterator()
 }
 ----
 

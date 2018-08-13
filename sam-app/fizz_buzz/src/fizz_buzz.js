@@ -14,7 +14,7 @@ class FizzBuzz {
     return output === '' ? input : output;
   }
 
-  iterator(input) {
+  static iterator(input) {
     const arr = [];
     const fizzBuzz = new FizzBuzz();
     for (let i = 1; i <= input; i += 1) {
