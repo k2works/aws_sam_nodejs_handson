@@ -15,7 +15,12 @@ class FizzBuzz {
   }
 
   iterator(input) {
-    return [1, 2, 'Fizz', 3, 4, 'Buzz'];
+    const arr = [];
+    const fizzBuzz = new FizzBuzz();
+    for (let i = 1; i <= input; i += 1) {
+      arr.push(fizzBuzz.generate(i));
+    }
+    return arr;
   }
 }
 module.exports = FizzBuzz;

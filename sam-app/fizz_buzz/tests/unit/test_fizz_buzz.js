@@ -60,6 +60,6 @@ describe('A FizzBuzz iterator', () => {
 
   it('should return [1,2,"Fizz",3,4,"Buzz"] when 5 is given', () => {
     const result = this.fizzBuzz.iterator(5);
-    expect(result).to.be.eql([1, 2, 'Fizz', 3, 4, 'Buzz']);
+    expect(result).to.be.eql([1, 2, 'Fizz', 4, 'Buzz']);
   });
 });
