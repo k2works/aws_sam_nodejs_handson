@@ -2,4 +2,5 @@
 
 cd docs
 rm -rf index.html
-asciidoctor -r asciidoctor-diagram src/index.adoc -D ./
+bundle exec asciidoctor -r asciidoctor-diagram src/index.adoc -D ./
+bundle exec asciidoctor -r asciidoctor-diagram src/fizz_buzz/*.adoc -D ./fizz_buzz

@@ -139,3 +139,4 @@ fabric.properties
 vendor
 docs/dist
 sam-app/packaged.yaml
+/docs/fizz_buzz/.asciidoctor
