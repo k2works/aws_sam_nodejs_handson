@@ -16,7 +16,7 @@
 * [x] [line-through]#「Fizz」を出力できるようにする#
 * [x] [line-through]#「Buzz」を出力できるようにする#
 * [x] [line-through]#「Fizz_buzz」を出力できるようにする#
-* [ ] 繰り返し実行できるようにする
+* [x] [line-through]#繰り返し実行できるようにする#
 
 === ユースケース図
 [plantuml]
