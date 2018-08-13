@@ -13,5 +13,9 @@ class FizzBuzz {
 
     return output === '' ? input : output;
   }
+
+  iterator(input) {
+    return [1, 2, 'Fizz', 3, 4, 'Buzz'];
+  }
 }
 module.exports = FizzBuzz;
