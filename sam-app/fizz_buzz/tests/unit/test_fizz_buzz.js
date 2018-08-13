@@ -16,4 +16,10 @@ describe('A FizzBuzz generator', () => {
     const result = fizzBuzz.generate(2);
     expect(result).to.be.equal(2);
   });
+
+  it('should return "Fizz" when 3 is played', () => {
+    const fizzBuzz = new FizzBuzz();
+    const result = fizzBuzz.generate(3);
+    expect(result).to.be.equal('Fizz');
+  });
 });
