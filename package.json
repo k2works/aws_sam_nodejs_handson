@@ -1,0 +1,32 @@
+{
+  "name": "aws_sam_nodejs_handson",
+  "version": "1.0.0",
+  "description": "AWS サーバーレスアプリケーションモデル (AWS SAM) ハンズオン(Node.js)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:hello_world": "cd sam-app/hello_world ; npm install",
+    "build:fizz_buzz": "cd sam-app/fizz_buzz ; npm install",
+    "test": "npm-run-all test:*",
+    "test:hello_world": "mocha sam-app/hello_world/tests/*",
+    "test:fizz_buzz": "mocha sam-app/fizz_buzz/tests/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k2works/aws_sam_nodejs_handson.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k2works/aws_sam_nodejs_handson/issues"
+  },
+  "homepage": "https://github.com/k2works/aws_sam_nodejs_handson#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "npm-run-all": "^4.1.3"
+  }
+}
