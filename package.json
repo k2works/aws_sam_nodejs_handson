@@ -7,12 +7,20 @@
     "doc": "docs"
   },
   "scripts": {
+    "pre-commit": "npm run lint",
+    "pre-push": "npm run coverage",
     "build": "npm-run-all build:*",
     "build:hello_world": "cd sam-app/hello_world ; npm install",
     "build:fizz_buzz": "cd sam-app/fizz_buzz ; npm install",
+    "lint": "npm-run-all lint:*",
+    "lint:hello_world": "eslint sam-app/hello_world/app.js",
+    "lint:fizz_buzz": "eslint sam-app/fizz_buzz/src/",
     "test": "npm-run-all test:*",
     "test:hello_world": "mocha sam-app/hello_world/tests/*",
-    "test:fizz_buzz": "mocha sam-app/fizz_buzz/tests/*"
+    "test:fizz_buzz": "mocha sam-app/fizz_buzz/tests/*",
+    "coverage": "npm-run-all coverage:*",
+    "coverage:hello_world": "nyc --reporter=html --reporter=text mocha sam-app/hello_world/tests/*",
+    "coverage:fizz_buzz": "nyc --reporter=html --reporter=text mocha sam-app/fizz_buzz/tests/*"
   },
   "repository": {
     "type": "git",
@@ -26,7 +34,15 @@
   "homepage": "https://github.com/k2works/aws_sam_nodejs_handson#readme",
   "devDependencies": {
     "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.0.0-rc.13",
     "mocha": "^5.2.0",
-    "npm-run-all": "^4.1.3"
+    "npm-run-all": "^4.1.3",
+    "nyc": "^12.0.2"
   }
 }
