@@ -205,6 +205,21 @@ npm run pre-commit
 npm run pre-push
 ```
 
+### Istanbulのセットアップ
+```bash
+npm install --save-dev nyc
+```
+package.jsonにnpm-scriptを追加する
+```json
+"scripts": {
+    "test": "mocha tests/unit/",
+    "lint": "eslint ./",
+    "coverage": "nyc --reporter=html --reporter=text mocha tests/unit/",
+    "pre-commit": "npm run lint",
+    "pre-push": "npm test"
+  },
+```
+
 # 参照
 + [Amazon Linux2にDockerをインストールする](https://qiita.com/reoring/items/0d1f556064d363f0ccb8)
 + [Pythonのパッケージ管理システムpipのインストールと使い方](https://uxmilk.jp/12691)
@@ -214,3 +229,4 @@ npm run pre-push
 + [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 + [ESLint 最初の一歩](https://qiita.com/mysticatea/items/f523dab04a25f617c87d)
 + [husky](https://github.com/typicode/husky)
++ [istanbul](https://istanbul.js.org/)
